@@ -1,0 +1,37 @@
+<h3>ArabaGüncelle</h3>
+
+<form [formGroup]=" carAddForm" (ngSubmit)="update()">
+  <div class="form-group m-3">
+    <input type="text" id="dailyPrice" formControlName="dailyPrice" class="form-control" [(ngModel)]="car.dailyPrice">
+    <div class="alert alert-danger"
+      *ngIf=" carAddForm.get('dailyPrice').hasError('required') &&  carAddForm.get('name').dirty"> Ücret Zorunludur
+    </div>
+  </div>
+
+  <div class="form-group m-3">
+    <input type="text" id="description" formControlName="description" class="form-control" [(ngModel)]="car.description"placeholder="Logo Yükleyiniz">
+    <div class="alert alert-danger"
+      *ngIf=" carAddForm.get('description').hasError('required') &&  carAddForm.get('logo').dirty"> Açıklama Zorunludur </div>
+  </div>
+
+  <div class="form-group m-3">
+    <select class="form-control" required name="brandId" id="brandId" formControlName="brandId" aria-describedby="color-help">
+      <option *ngFor="let brand of brands" [value]="brand.id">
+        {{brand.name}}
+      </option>
+    </select>
+    <small *ngIf="carAddForm.get('brandId').hasError('required') && carAddForm.get('brandId').touched" id="color-help" class="p-error block ng-invalid ng-dirty">Category is not available.</small>
+  </div>
+
+
+  <div class="form-group m-3">
+    <select class="form-control" required name="colorId" id="colorId" formControlName="colorId" aria-describedby="color-help">
+      <option *ngFor="let color of colors" [value]="color.id">
+        {{color.name}}
+      </option>
+    </select>
+    <small *ngIf="carAddForm.get('colorId').hasError('required') && carAddForm.get('colorId').touched" id="color-help" class="p-error block ng-invalid ng-dirty">Category is not available.</small>
+  </div>  
+  <br>
+  <button type="submit" class="btn btn-warning" [disabled]=" carAddForm.invalid">Güncelle</button>
+</form>

@@ -1,0 +1,23 @@
+
+<br>
+<ul class="list-group" >
+    <a class="list-group-item list-group-item-action d-flex justify-content-between" style="background-color: blue; color:aliceblue;">
+        <div>BRAND</div>
+        <div class="mr-5"><button type="button" class="btn btn-success" routerLink="brands/addBrand"><i class="fa fa-plus"></i></button></div>
+
+    </a>
+    <div *ngFor="let brand of brands">
+        <li class="list-group-item list-group-item-action d-flex justify-content-between">
+            <div  (click)="selectedBrandId(brand)" ><img src="{{brand.logo}}" style="width:40px ; margin-right: 20px;">{{brand.name}}</div>
+            
+            <div class="mr-5">
+               
+                
+
+                <button type="button" class="btn btn-link" (click)="deleteBrand(brand.id)"><i class="fa fa-close" style="color:red ;"></i></button>
+
+                <button type="button" class="btn btn-link"><i class="fa-regular fa-share-from-square" style="color:magenta;" (click)="selectCarId(brand) "></i></button>
+
+            </div>
+    </div>
+  </ul>

@@ -1,0 +1,35 @@
+<br>
+<div class="card mb-3" style="max-width: 100%;">
+  <div class="row g-0" >
+    <div class="col-md-4">
+      <img src="{{cars.image}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{cars.brandName}}</h5>
+        <p class="card-text">{{cars.description}}<br>{{cars.dailyPrice}} $</p>
+        <p class="card-text"><small class="text-muted">Without TAX.</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div *ngFor="let additionalService of additionalServices">
+    <hr>
+    <table class="table">
+            <tr>
+            <td><img src="{{additionalService.image}}" style="width:80px ;"/></td>
+            <td>{{additionalService.name}}</td>
+            <td>{{additionalService.price}}</td>
+            <td><i class="fa-solid fa-angle-down fa-xl" style="padding-right:5px;color:#034078"></i>Details</td>
+            <td><button class="btn btn-light"><i class="fa-solid fa-circle-plus fa-xl" style="color: #034078; padding-right: 5px;" (click)="addToCart2(additionalService)"></i>Ekle</button></td>
+            </tr>
+    </table>
+    <div class="div">
+        <a>
+           {{additionalService.description}}
+        </a>
+        <button class="btn btn-light"><i class="fa-solid fa-circle-plus fa-xl" style="color: #034078; padding-right: 5px;" routerLink="/checkout"></i>Sepete Git</button>
+    </div>
+    <hr>
+</div>

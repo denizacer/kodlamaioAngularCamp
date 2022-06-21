@@ -1,0 +1,27 @@
+----<h3>Yeni Renk Ekle</h3>
+
+<form [formGroup]="colorAddForm" (ngSubmit)="add()">
+  <div class="form-group">
+    <input type="text" id="colorName" formControlName="colorName" 
+    [(ngModel)]="color.name"
+    class="form-control" placeholder="Renk adı giriniz">
+    <div class="alert alert-danger"
+      *ngIf="colorAddForm.get('colorName').hasError('required') && colorAddForm.get('colorName').dirty"> Renk adı zorunludur
+    </div>
+  </div>
+  <div class="form-group">
+    <input type="text" id="id" formControlName="id" class="form-control"
+    [(ngModel)]="color.id" placeholder="Id giriniz">
+    <div class="alert alert-danger"
+      *ngIf="colorAddForm.get('id').hasError('required') && colorAddForm.get('id').dirty"> Id Girilmesi Zorunludur</div>
+  </div>
+  <div class="form-group">
+    <input type="text" id="image" formControlName="image" class="form-control" 
+    [(ngModel)]="color.image" placeholder="Resim ekleyiniz">
+
+    <div class="alert alert-danger"
+      *ngIf="colorAddForm.get('image').hasError('required') && colorAddForm.get('image').dirty"> Resim Eklemek zorunludur</div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="colorAddForm.invalid">Ekle</button>
+</form>

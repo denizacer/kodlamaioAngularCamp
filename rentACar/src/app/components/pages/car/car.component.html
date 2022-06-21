@@ -1,0 +1,26 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">id</th>
+        <th scope="col">brandId</th>
+        <th scope="col">brandName</th>
+        <th scope="col">colorId</th>
+        <th scope="col">colorName</th>
+        <th scope="col">dailyPrice</th>
+        <th scope="col">description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of cars">
+        <td><img src="{{car.image}}" /></td>
+        <td>{{ car.id }}</td>
+        <td>{{ car.brandName }}</td>
+        <td>{{ car.colorId }}</td>
+        <td>{{ car.colorName }}</td>
+        <td>{{ car.dailyPrice }}</td>
+        <td>{{ car.description }}</td>
+        <button class="m-3 btn btn-success" pButton pRipple type="button" routerLink="/rentcar">Kirala</button>
+      </tr>
+    </tbody>
+  </table>

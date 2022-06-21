@@ -1,0 +1,59 @@
+<h3>Yeni Araba Ekle</h3>
+<p-toast></p-toast>
+<form [formGroup]="CarAddForm" (ngSubmit)="add()">
+  <!-- <div class="form-group">
+    <input type="text" id="brandName" formControlName="brandName" class="form-control" placeholder="Marka adı giriniz">
+    <div class="alert alert-danger"
+      *ngIf="CarAddForm.get('brandName').hasError('required') && CarAddForm.get('brandName').dirty"> Marka adı zorunludur
+    </div>
+  </div> -->
+  <!---->
+  <div class="form-group m-3">
+    <select class="form-control" required name="brandId" id="brandId" formControlName="brandId" aria-describedby="color-help">
+      <option *ngFor="let brand of brands" [value]="brand.id">
+        {{brand.name}}
+      </option>
+    </select>
+    <small *ngIf="CarAddForm.get('brandId').hasError('required') && CarAddForm.get('brandId').touched" id="color-help" class="p-error block ng-invalid ng-dirty">Category is not available.</small>
+  </div>
+<!---->
+  <!-- <div class="form-group">
+    <input type="text" id="colorId" formControlName="colorId" class="form-control" placeholder="Renk giriniz">
+    <div class="alert alert-danger"
+      *ngIf="CarAddForm.get('colorId').hasError('required') && CarAddForm.get('colorId').dirty"> Renk Girilmesi Zorunludur</div>
+  </div> -->
+<!---->
+  <div class="form-group m-3">
+    <select class="form-control" required name="colorId" id="colorId" formControlName="colorId" aria-describedby="color-help">
+      <option *ngFor="let color of colors" [value]="color.id">
+        {{color.name}}
+      </option>
+    </select>
+    <small *ngIf="CarAddForm.get('colorId').hasError('required') && CarAddForm.get('colorId').touched" id="color-help" class="p-error block ng-invalid ng-dirty">Category is not available.</small>
+  </div>
+
+
+  <!-- <div class="form-group">
+    <input type="text" id="logo" formControlName="logo" class="form-control" placeholder="Açıklama ID giriniz">
+    <div class="alert alert-danger"
+      *ngIf="CarAddForm.get('logo').hasError('required') && CarAddForm.get('logo').dirty"> Açıklama Girilmesi
+      zorunludur</div>
+  </div> -->
+  
+
+  <div class="form-group m-3">
+    <input type="text" id="description" formControlName="description" class="form-control" placeholder="Açıklama ID giriniz">
+    <div class="alert alert-danger"
+      *ngIf="CarAddForm.get('description').hasError('required') && CarAddForm.get('description').dirty"> Açıklama Girilmesi
+      zorunludur</div>
+  </div>
+
+  <div class="form-group m-3">
+    <input type="text" id="dailyPrice" formControlName="dailyPrice" class="form-control" placeholder="Açıklama ID giriniz">
+    <div class="alert alert-danger"
+      *ngIf="CarAddForm.get('dailyPrice').hasError('required') && CarAddForm.get('dailyPrice').touched">
+      Fiyat Girilmelidir 
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="CarAddForm.invalid">Ekle</button>
+</form>
